@@ -7,13 +7,16 @@ int get_sentences(string text);
 
 int main(void) {
 	// string text = get_string("Text: ");
-	string test_string = "Hello!, how ar3e the people of5 the world today?\n";
+	string test_string = "Congratulations! Today is your day. You're off to Great Places! You're off and away!"; 
 	string test_string2 = "Hello! 5How are you today?";
-	int letters = get_letters(test_string2);
+	int letters = get_letters(test_string);
 	int words = get_words(test_string);
 	int sentences = get_sentences(test_string);
-	printf("Number of sentences: %i\n", sentences);
-	
+	float ave_letters = (letters /(float) words) * 100;
+	float ave_sentences = (sentences /(float) words) * 100;
+	float index = (0.0588*ave_letters) -(0.296*ave_sentences) - 15.8;
+	printf("Grade: %.0f\n", index);
+
 
 }
 
