@@ -1,14 +1,25 @@
 #include <stdio.h>
 #include <cs50.h>
 
+int get_letters(string text);
+
 int main(void) {
 	// string text = get_string("Text: ");
-	string test_string = "Hello there world of people\n";
-	int counter = 0;
-	for (int i = 0; test_string[i] != '\0'; i++) {
-		//printf("%c",test_string[i]);
-		if (test_string[i] != ' ') {
-			printf("%c", test_string[i]);
-		}
-	}
+	string test_string = "Hello!, how ar3e the people of5 the world today?\n";
+	string test_string2 = "Hello! 5How are you today?";
+	get_letters(test_string2);
+
+	
+
 }
+
+int get_letters(string text) {
+	int counter = 0;
+	for (int i = 0; text[i] != '\0'; i++) {
+		if (text[i] <= 'Z' && text[i] >= 'A' || text[i] <= 'z' && text[i] >= 'a')
+			//printf("%c", text[i]);
+			counter++;	
+	}
+	printf("Number of letters: %i\n", counter);
+}
+
