@@ -6,12 +6,10 @@ int get_words(string text);
 int get_sentences(string text);
 
 int main(void) {
-	// string text = get_string("Text: ");
-	string test_string = "One fish. Two fish. Red fish. Blue fish.";
-	string test_string2 = "Hello! 5How are you today?";
-	int letters = get_letters(test_string);
-	int words = get_words(test_string);
-	int sentences = get_sentences(test_string);
+	string text = get_string("Text: ");
+	int letters = get_letters(text);
+	int words = get_words(text);
+	int sentences = get_sentences(text);
 	float ave_letters = (letters /(float) words) * 100;
 	float ave_sentences = (sentences /(float) words) * 100;
 	float index = (0.0588*ave_letters) -(0.296*ave_sentences) - 15.8;
@@ -30,10 +28,9 @@ int get_letters(string text) {
 	int counter = 0;
 	for (int i = 0; text[i] != '\0'; i++) {
 		if (text[i] <= 'Z' && text[i] >= 'A' || text[i] <= 'z' && text[i] >= 'a')
-			//printf("%c", text[i]);
 			counter++;	
 	}
-	//printf("Number of letters: %i\n", counter);
+	
 	return counter;
 }
 
@@ -45,8 +42,6 @@ int get_words(string text) {
 		}
 	}
 	counter++; // for the last word in a sentence
-	// problem stated that sentences will not end with a space
-	//printf("Number of words: %i\n",counter);
 	return counter;
 }
 
